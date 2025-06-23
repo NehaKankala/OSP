@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: osp-java-app
+    env: java
+    buildCommand: "mvn clean package"
+    startCommand: ""
+    repo: https://github.com/NehaKankala/OSP
+    branch: main
+    buildFilter:
+      paths:
+        - pom.xml
+    autoDeploy: true
+    plan: free
+    build:
+      buildCommand: mvn clean package
+    deploy:
+      artifactPath: target/OSP.war
